@@ -1,16 +1,17 @@
+import { ThemeContext } from "@emotion/react"
 import { MantineProvider, Text, AppShell, Navbar, Header, NavbarProps } from '@mantine/core'
 
 
 export function CmNavbar() {
+    const theme = ThemeContext
     return (
         <Navbar 
         p='sm' 
         width={{ sm: 250, lg: 250 }}
-        styles={(theme) => ({
-            main: {
-            backgroundColor: theme.fn.variant({variant: 'filled', color: theme.primaryColor}).background,
-            }
-        })}>
+        sx={(theme) => ({
+            backgroundColor: theme.colorScheme === "dark" ? theme.colors.red[0] : theme.colors.blue[1],
+        })}
+        >
             <Text>Navbar Text</Text>
         </Navbar>
     )
